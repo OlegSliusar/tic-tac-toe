@@ -11,9 +11,7 @@ class TicTacToe
 
   def show_current_grid
     counter_three = 0
-    puts "\n"
-    puts "#" * 20
-    puts "\n"
+    puts "\n" + "#" * 20 + "\n"
     puts "     1    2     3"
     9.times do |i|
       case i
@@ -93,13 +91,75 @@ class TicTacToe
       print "Player #{@players_move}, enter your move: "
       move(gets)
     end
+    show_current_grid
+    puts "Player #{victory?} wins!"
+    print "\n"
+    print "Play again? (y/n) "
+    answer = gets.strip
+    puts "#" * 90
+    initialize if answer == "y"
   end
 
   def victory?
-    false
+    str = "X"
+    if @grid[0] == str && @grid[1] == str && @grid[2] == str
+      return str
+    end
+    if @grid[3] == str && @grid[4] == str && @grid[5] == str
+      return str
+    end
+    if @grid[6] == str && @grid[7] == str && @grid[8] == str
+      return str
+    end
+    ################
+    if @grid[0] == str && @grid[3] == str && @grid[6] == str
+      return str
+    end
+    if @grid[1] == str && @grid[4] == str && @grid[7] == str
+      return str
+    end
+    if @grid[2] == str && @grid[5] == str && @grid[8] == str
+      return str
+    end
+    ################
+    if @grid[0] == str && @grid[4] == str && @grid[8] == str
+      return str
+    end
+    if @grid[2] == str && @grid[4] == str && @grid[6] == str
+      return str
+    end
+
+    #########################################################
+    str = "O"
+    if @grid[0] == str && @grid[1] == str && @grid[2] == str
+      return str
+    end
+    if @grid[3] == str && @grid[4] == str && @grid[5] == str
+      return str
+    end
+    if @grid[6] == str && @grid[7] == str && @grid[8] == str
+      return str
+    end
+    ################
+    if @grid[0] == str && @grid[3] == str && @grid[6] == str
+      return str
+    end
+    if @grid[1] == str && @grid[4] == str && @grid[7] == str
+      return str
+    end
+    if @grid[2] == str && @grid[5] == str && @grid[8] == str
+      return str
+    end
+    ################
+    if @grid[0] == str && @grid[4] == str && @grid[8] == str
+      return str
+    end
+    if @grid[2] == str && @grid[4] == str && @grid[6] == str
+      return str
+    end
   end
 end
 
 
-# Test
+# Run the game
 new_game = TicTacToe.new
