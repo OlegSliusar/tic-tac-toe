@@ -5,7 +5,7 @@ game = TicTacToe.new
 loop do
   until game.victory
     game.show_current_board
-    print "Player #{@players_turn}, enter your move: "
+    print "Player #{game.players_turn}, enter your move: "
     game.move(gets)
   end
   game.show_current_board

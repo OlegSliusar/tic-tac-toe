@@ -1,5 +1,6 @@
 class TicTacToe
-
+  attr_accessor :players_turn
+  
   def initialize
     @players_turn = rand(2)
     @players_turn = "X" if @players_turn == 0
