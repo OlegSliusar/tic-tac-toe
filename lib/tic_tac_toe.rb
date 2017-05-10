@@ -1,6 +1,6 @@
 class TicTacToe
   attr_accessor :players_turn
-  
+
   def initialize
     @players_turn = rand(2)
     @players_turn = "X" if @players_turn == 0
@@ -81,33 +81,34 @@ class TicTacToe
   end
 
   def victory
-    check_block = Proc.new do |player|
-      # Horizontal
-      if @board[0] == player && @board[1] == player && @board[2] == player
-        player
-      elsif @board[3] == player && @board[4] == player && @board[5] == player
-        player
-      elsif @board[6] == player && @board[7] == player && @board[8] == player
-        player
-      # Vertical
-      elsif @board[0] == player && @board[3] == player && @board[6] == player
-        player
-      elsif @board[1] == player && @board[4] == player && @board[7] == player
-        player
-      elsif @board[2] == player && @board[5] == player && @board[8] == player
-        player
-      # Diagonal
-      elsif @board[0] == player && @board[4] == player && @board[8] == player
-        player
-      elsif @board[2] == player && @board[4] == player && @board[6] == player
-        player
-      end
+
+    # Horizontal
+    if @board[0] && @board[0] == @board[1] && @board[1] == @board[2]
+      @board[0]
+    elsif @board[3] && @board[3] == @board[4] && @board[4] == @board[5]
+      @board[3]
+    elsif @board[6] && @board[6] == @board[7] && @board[7] == @board[8]
+      @board[6]
+    # Vertical
+    elsif @board[0] && @board[0] == @board[3] && @board[3] == @board[6]
+      @board[0]
+    elsif @board[1] && @board[1] == @board[4] && @board[4] == @board[7]
+      @board[1]
+    elsif @board[2] && @board[2] == @board[5] && @board[5] == @board[8]
+      @board[2]
+    # Diagonal
+    elsif @board[0] && @board[0] == @board[4] && @board[4] == @board[8]
+      @board[0]
+    elsif @board[2] && @board[2] == @board[4] && @board[4] == @board[6]
+      @board[2]
+    elsif @board.compact.length == 9
+      "Draw!"
     end
 
-    for_player = "X"
-    winner = check_block.call(for_player)
-    return winner if winner
-    for_player = "O"
-    check_block.call(for_player)
+    # for_player = "X"
+    # winner = check_block.call
+    # return winner if winner
+    # for_player = "O"
+    # check_block.call(for_player)
   end
 end

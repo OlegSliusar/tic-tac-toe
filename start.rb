@@ -9,7 +9,13 @@ loop do
     game.move(gets)
   end
   game.show_current_board
-  puts "Player #{game.victory} wins!"
+  
+  unless game.victory == "Draw!"
+    puts "Player #{game.victory} wins!"
+  else
+    puts game.victory
+  end
+
   print "\n"
   print "Play again? (y/n) "
   answer = gets.strip
